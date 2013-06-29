@@ -23,6 +23,7 @@ Summary:        X server resource database utility
 Url:            http://xorg.freedesktop.org/
 Group:          System/X11/Utilities
 Source:         %{name}-%{version}.tar.bz2
+Source1001: 	xrdb.manifest
 BuildRequires:  pkg-config
 BuildRequires:  pkgconfig(x11)
 BuildRequires:  pkgconfig(xmuu)
@@ -39,6 +40,7 @@ root window of any or all screens, or everything combined.
 
 %prep
 %setup -q
+cp %{SOURCE1001} .
 
 %build
 %configure --with-cpp=%{_bindir}/cpp
@@ -48,6 +50,7 @@ make %{?_smp_mflags}
 %make_install
 
 %files
+%manifest %{name}.manifest
 %defattr(-,root,root)
 %doc AUTHORS ChangeLog COPYING README
 %{_bindir}/xrdb
