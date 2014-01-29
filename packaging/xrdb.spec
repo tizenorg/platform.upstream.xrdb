@@ -14,6 +14,7 @@
 
 # Please submit bugfixes or comments via http://bugs.opensuse.org/
 #
+%bcond_with x
 
 Name:           xrdb
 Version:        1.0.9
@@ -32,6 +33,10 @@ Requires:       cpp
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 # This was part of the xorg-x11 package up to version 7.6
 Conflicts:      xorg-x11 <= 7.6
+
+%if !%{with x}
+ExclusiveArch:
+%endif
 
 %description
 Xrdb is used to get or set the contents of the RESOURCE_MANAGER property
