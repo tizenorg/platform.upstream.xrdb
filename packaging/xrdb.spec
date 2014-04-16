@@ -17,7 +17,7 @@
 %bcond_with x
 
 Name:           xrdb
-Version:        1.0.9
+Version:        1.1.0
 Release:        1
 License:        MIT
 Summary:        X server resource database utility
@@ -48,7 +48,7 @@ root window of any or all screens, or everything combined.
 cp %{SOURCE1001} .
 
 %build
-%configure --with-cpp=%{_bindir}/cpp
+%autogen --with-cpp=%{_bindir}/cpp
 make %{?_smp_mflags}
 
 %install
